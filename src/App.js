@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 
 function App() {
   const [value, setValue] = useState(1);
-  const [from, setFrom] = useState("uah");
-  const [to, setTo] = useState("usd");
+  const [from, setFrom] = useState("usd");
+  const [to, setTo] = useState("uah");
   const [variants, setVariants] = useState([]);
   const [information, setInformation] = useState({});
 
@@ -40,11 +40,11 @@ function App() {
 
   return (
     <div className="App">
-       <h1>Конвертуй валюту швидко!</h1>
+       <h1>Convert your currency fast!</h1>
 
        <div className='input_and_choose_currency'>
           <form>
-            <label for="input_currency">Введіть число у uah</label>
+            <label for="input_currency">Write a number in {upperCase(from)}</label>
             <input
             id='input_currency'
             value={value}
@@ -53,11 +53,14 @@ function App() {
             </input>
           </form>
 
-          <Dropdown options={variants} onChange={handleFrom} value={from} placeholder="From" />
+          <Dropdown options={variants} onChange={handleFrom} value={from}/>
 
-          <p>{value} {upperCase(from)} = {value * information[to]} {upperCase(to)}</p>
+          <div className='resault'>
+            <p>Resault:</p>
+            <p>{value === '' ? 0 : value} {upperCase(from)} = {value * information[to]} {upperCase(to)}</p>
+          </div>
 
-          <Dropdown options={variants} onChange={handleTo} value={to} placeholder="To" />
+          <Dropdown options={variants} onChange={handleTo} value={to}/>
        
         </div>
     </div>
