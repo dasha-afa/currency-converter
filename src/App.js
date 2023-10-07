@@ -84,6 +84,7 @@ function App() {
         </div>
 
       </div>
+      <p className='nameDev'>Created by Daria Afanasieva❤️</p>
   </div>
 );}
 
